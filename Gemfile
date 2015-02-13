@@ -32,6 +32,16 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Use Devise for users and authentication
+gem 'devise', '~> 3.4.1'
+
+# Paperclip to attach downloadable files to the product record.
+gem 'paperclip', '~> 4.2.1'
+
+# Make sure Rails' asset pipeline plays well with Heroku
+gem 'rails_12factor', group: :production
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
