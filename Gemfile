@@ -41,6 +41,9 @@ gem 'paperclip', '~> 4.2.1'
 # Make sure Rails' asset pipeline plays well with Heroku
 gem 'rails_12factor', group: :production
 
+# Store uploaded file with Paperclip on Amazon Web Services
+gem 'aws-sdk'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
