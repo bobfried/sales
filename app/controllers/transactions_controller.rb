@@ -14,7 +14,7 @@ class TransactionsController < ApplicationController
 	end
 
 	def create
-		product = Prod.find_by!(
+		product = Product.find_by!(
 			permalink: params[:permalink]
 		)
 
