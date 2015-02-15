@@ -4,6 +4,12 @@ Rails.application.routes.draw do
   resources :products
 
   devise_for :users
+
+  get   '/buy/:permalink',  to: 'transactions#new',     as: :show_buy
+  post  '/buy/:permalink',  to: 'transactions#create',  as: :buy
+  get   '/pickup/:guid',    to: 'transaction#pickup',   as: :pickup
+  get   '/download/:guid',  to: 'transaction#download', as: :download
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

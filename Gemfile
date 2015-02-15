@@ -1,3 +1,7 @@
+source 'https://code.stripe.com' do
+	gem 'stripe'
+end
+
 source 'https://rubygems.org'
 ruby "2.2.0"
 
@@ -44,6 +48,13 @@ gem 'rails_12factor', group: :production
 # Store uploaded file with Paperclip on Amazon Web Services
 gem 'aws-sdk'
 
+# Use HTTParty to get the data from S3 (AWS) 
+ gem 'httparty'
+
+group :development do 
+	gem 'stripe-ruby-mock'
+	gem 'database_cleaner'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

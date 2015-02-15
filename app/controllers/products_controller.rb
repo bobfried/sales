@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-  # respond_to :html, :xml, :json
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products

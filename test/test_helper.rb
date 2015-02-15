@@ -7,4 +7,17 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+
+  # Stripe testing through StripeMock
+  setup do
+  	DatabaseCleaner.start
+  	StripeMock.start
+  end
+
+  teardown do
+  	DatabaseCleaner.clean
+  	StripeMock.stop
+  end
 end
+
+require 'mocha/setup'
