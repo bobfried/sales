@@ -1,1 +1,6 @@
-This is the example app fro the Mastering Modern Payments with Stripe and Rails tutorial
+This is the example app fro the Mastering Modern Payments with Stripe and Rails tutorial.
+
+In trying to get git to commit with the sublime editor, I've tried several things.
+
+[content]
+	editor = "/opt/sublime_text/sublime_text" -w
