@@ -2,5 +2,8 @@ This is the example app fro the Mastering Modern Payments with Stripe and Rails 
 
 In trying to get git to commit with the sublime editor, I've tried several things.
 
+This one finally worked (maybe): 
 [content]
-	editor = "/opt/sublime_text/sublime_text" -w
+	editor = "'/opt/sublime_text/sublime_text' -w"
+
+Note double and single quotes	
