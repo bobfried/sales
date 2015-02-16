@@ -36,7 +36,7 @@ class TransactionsController < ApplicationController
 			# The card has been declined or
 			# some other error has occurred
 			@error = e
-			render :new			
+			render :new	
 		end
 	end
 
