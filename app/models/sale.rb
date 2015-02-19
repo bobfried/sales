@@ -4,7 +4,7 @@ class Sale < ActiveRecord::Base
   before_save :populate_guid
   validates_uniqueness_of :guid
 
-  private 
+  private
 
   def populate_guid
   	if new_record?

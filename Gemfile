@@ -48,12 +48,19 @@ gem 'rails_12factor', group: :production
 # Store uploaded file with Paperclip on Amazon Web Services
 gem 'aws-sdk'
 
-# Use HTTParty to get the data from S3 (AWS) 
- gem 'httparty'
+# Use HTTParty to get the data to and from S3 (AWS)
+  gem 'httparty'
 
-group :development do 
-	gem 'stripe-ruby-mock'
+# Use Mocha for macking and stubbing
+  gem 'mocha', :require => false
+
+group :development do
+  gem 'stripe-ruby-mock', '~> 2.0.4', :require => 'stripe_mock'
 	gem 'database_cleaner'
+	# Check current app for rails best practices
+	gem 'rails_best_practices'
+  #Check current app for security vulnerabilities and suggest fixes
+  gem 'brakeman'
 end
 
 group :development, :test do
