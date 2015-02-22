@@ -1,18 +1,21 @@
 class TransactionsController < ApplicationController
-	skip_before_action :authenticate_user!,
-		only: [:new, :create]
-
+	skip_before_action :authenticate_user!
 	before_filter :strip_iframe_protection
 
-	def iframe
-		@product = Product.find_by!(permalink: params[:permalink])			
-		@sale = Sale.new(product_id: @product)
-	end		
+	before_filter :find_product, only: [:iframe, :new, :create]
 
 	def new
-		@product = Product.find_by!(
-			permalink: params[:permalink]
-		)
+		@sale = Sale.new(product_id: @product.id)
+		set_page_title "Buy #{@product.name}"
+	end
+
+	def iframe
+		@sale = Sale.new(product_id: @product.id)
+	end		
+
+	def show
+		@sale = Sale.find_by!(guid: params[:guid])
+		@product = @sale.product
 	end
 
 	def pickup
@@ -62,5 +65,9 @@ private
 	def strip_iframe_protection
 		response.headers.delete('X-Frame-Options')			
 	end	
+
+	def find_product
+		@product = Product.find_by!(permalink: params[:permalink])
+	end
 	
 end
