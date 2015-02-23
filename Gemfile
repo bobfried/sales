@@ -40,14 +40,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Devise for users and authentication
 gem 'devise', '~> 3.4.1'
 
+# Store uploaded file with Paperclip on Amazon Web Services - MUST BE BEFORE PAPERCLIP GEM
+gem 'aws-sdk', '< 2.0'
+
 # Paperclip to attach downloadable files to the product record.
 gem 'paperclip', '~> 4.2.1'
 
 # Make sure Rails' asset pipeline plays well with Heroku
 gem 'rails_12factor', group: :production
-
-# Store uploaded file with Paperclip on Amazon Web Services
-gem 'aws-sdk', '< 2.0'
 
 # Use HTTParty to get the data to and from S3 (AWS)
   gem 'httparty'
