@@ -98,8 +98,8 @@ Rails.application.configure do
 
   # Set Paperclip defaults to use Amazon Web Services to store uploaded files
   config.paperclip_defaults = {
-    storage: => :s3,
-    :url => 's3_domain_url',
+    :storage => :s3,
+    :url => ':s3_domain_url',
     :path => '/:class/:attachment/:id_partition/:style/:filename',
     s3_credentials: {
       bucket: => ENV['AWS_BUCKET'],
