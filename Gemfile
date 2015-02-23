@@ -47,7 +47,7 @@ gem 'paperclip', '~> 4.2.1'
 gem 'rails_12factor', group: :production
 
 # Store uploaded file with Paperclip on Amazon Web Services
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 
 # Use HTTParty to get the data to and from S3 (AWS)
   gem 'httparty'
