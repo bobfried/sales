@@ -14,3 +14,9 @@
 
 # Ignore sample code base
 /sample_code_base
+
+#Ignore the s3 password configuration for production
+s3.yml
+
+# Ignore AWS bundles
+aws*
