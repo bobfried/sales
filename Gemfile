@@ -55,6 +55,9 @@ gem 'rails_12factor', group: :production
 # Use Mocha for macking and stubbing
   gem 'mocha', :require => false
 
+# AASM for state machines
+  gem 'aasm'
+
 group :development do
   gem 'stripe-ruby-mock', '~> 2.0.4', :require => 'stripe_mock'
 	gem 'database_cleaner'
