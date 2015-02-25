@@ -58,6 +58,9 @@ gem 'rails_12factor', group: :production
 # AASM for state machines
   gem 'aasm'
 
+# PaperTrail to track events and record versions
+  gem 'paper_trail', '~> 3.0.6'
+
 group :development do
   gem 'stripe-ruby-mock', '~> 2.0.4', :require => 'stripe_mock'
 	gem 'database_cleaner'
