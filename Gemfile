@@ -61,6 +61,9 @@ gem 'rails_12factor', group: :production
 # PaperTrail to track events and record versions
   gem 'paper_trail', '~> 3.0.6'
 
+# StripEvent to Webhook to Stripes event handler
+  gem 'stripe_event'  
+
 group :development do
   gem 'stripe-ruby-mock', '~> 2.0.4', :require => 'stripe_mock'
 	gem 'database_cleaner'

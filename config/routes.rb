@@ -13,6 +13,11 @@ Rails.application.routes.draw do
   # iframe action
   match '/iframe/:permalink' => 'transactions#iframe', via: :get, as: :buy_iframe
 
+  # StripeEvent acts as a Rail engine for webhooking to Stripes event handler
+  # Need to add a webhook in Stripe's management interface to:
+  # https://your-app.example.com/stripe-events
+  mount StripeEvent::Engine => '/stripe-events'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
