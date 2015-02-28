@@ -64,6 +64,9 @@ gem 'rails_12factor', group: :production
 # StripEvent to Webhook to Stripes event handler
   gem 'stripe_event'  
 
+# Convert HTML, Markdown, or LaTex to PDF (Pete Keen)
+  gem 'docverter'
+
 group :development do
   gem 'stripe-ruby-mock', '~> 2.0.4', :require => 'stripe_mock'
 	gem 'database_cleaner'
