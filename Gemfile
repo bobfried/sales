@@ -67,6 +67,9 @@ gem 'rails_12factor', group: :production
 # Convert HTML, Markdown, or LaTex to PDF (Pete Keen)
   gem 'docverter'
 
+# Sidekiq for Ruby background processing
+  gem 'sidekiq'
+
 group :development do
   gem 'stripe-ruby-mock', '~> 2.0.4', :require => 'stripe_mock'
 	gem 'database_cleaner'

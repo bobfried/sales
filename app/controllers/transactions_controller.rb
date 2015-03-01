@@ -24,24 +24,33 @@ class TransactionsController < ApplicationController
 	end
 
 	def create
-		product = Product.find_by!(
-			permalink: params[:permalink]
-		)
 
+		token = params[:stripeToken]
 
-		sale = @product.sales.create!(
-				amount: 		@product.price,
-				email: 			params[:email],
-				stripe_token: 	params[:stripeToken]
-			)
-		sale.process!
-		if sale.finished?
-			redirect_to pickup_url(guid: sale.guid)
+		sale = Sale.new do |s|
+			s.amount =	product.price,
+			s.product_id = product.id,
+			s.stripe_token = token,
+			s.email = params[:email]
+		end
+
+		if sale.save
+			StripeCharger.perform_async(sale.guid)
+			render json: { guid: sale.guid }
 		else
-			flash.now[:alert] = sale.error
-			render :new
+			errors = sale.errors.full_messages
+			render json: {
+				error: errors.join(" ")
+			}, status: 400
 		end
 	end
+
+	def status
+		sale = Sale.find_by!(guid: params[:guid])
+
+		render json: {status: sale.state }
+	end
+
 
 	def download
 		@sale = Sale.find_by!(guid: params[:guid])
