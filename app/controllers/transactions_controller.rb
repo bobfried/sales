@@ -24,6 +24,7 @@ class TransactionsController < ApplicationController
 	end
 
 	def create
+		product = Product.find_by!(permalink: params[:permalink])
 
 		token = params[:stripeToken]
 
