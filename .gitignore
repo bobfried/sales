@@ -20,3 +20,6 @@ s3.yml
 
 # Ignore AWS bundles
 aws*
+
+#Ignore redis
+/redis

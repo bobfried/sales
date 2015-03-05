@@ -2,14 +2,16 @@ class TransactionsController < ApplicationController
 	skip_before_action :authenticate_user!
 	before_filter :strip_iframe_protection
 
-	before_filter :find_product, only: [:iframe, :new, :create]
+	
 
 	def new
+		@product = Product.find_by!(permalink: params[:permalink])
 		@sale = Sale.new(product_id: @product.id)
 		set_page_title "Buy #{@product.name}"
 	end
 
 	def iframe
+		@product = Product.find_by!(permalink: params[:permalink])
 		@sale = Sale.new(product_id: @product.id)
 	end		
 
