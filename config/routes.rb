@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :products
 
+  resources :subscriptions, only: [:index, :new, :create]
+
   devise_for :users
 
   get   '/buy/:permalink',  to: 'transactions#new',      as: :show_buy
@@ -13,7 +15,7 @@ Rails.application.routes.draw do
   # iframe action
   match '/iframe/:permalink' => 'transactions#iframe', via: :get, as: :buy_iframe
 
-  # StripeEvent acts as a Rail engine for webhooking to Stripes event handler
+  # StripeEvent acts as a Rails engine for webhooking to Stripes event handler
   # Need to add a webhook in Stripe's management interface to:
   # https://your-app.example.com/stripe-events
   mount StripeEvent::Engine => '/stripe-events'
