@@ -43,4 +43,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = {
     :host => 'localhost:3000'
   }
+
+  # For REDIS configuration
+  ENV["REDISTOGO_URL"] = 'redis://redistogo:4255f2d2e69de1a929d2444a126aec32@angelfish.redistogo.com:10771'
 end
